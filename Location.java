@@ -48,5 +48,8 @@ public class Location
         this.description = description;
     }
     
-    public void printData(){}
+    public void printData()
+    {
+        System.out.println("Provinsi" + getProvince());
+    }
 }

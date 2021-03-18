@@ -73,5 +73,7 @@ public class Jobseeker
     }
     
     public void printData()
-    {}
+    {
+        System.out.println("Pencari Kerja" + getName());
+    }
 }
