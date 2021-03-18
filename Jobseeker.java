@@ -24,41 +24,54 @@ public class Jobseeker
     
     public int getId()
     {
-        return 0;
+        return this.id;
     }
   
     public String getName()
     {
-        return "oop";
+        return this.name;
     }
 
     public String getEmail()
     {
-        return "oop";
+        return this.email;
     }
 
     public String getPassword()
     {
-        return "oop";
+        return this.password;
     }
 
     public String getJoinDate()
     {
-        return "oop";
+        return this.joinDate;
     }
 
     public void setId(int id)
-    {}
+    {
+        this.id = id;
+    }
     
     public void setEmail(String email)
-    {}
+    {
+        this.email = email;
+    }
     
     public void setName(String name)
-    {}
+    {
+        this.name = name;
+    }
     
     public void setPassword(String password)
-    {}
+    {
+        this.password = password;
+    }
     
     public void setJoinDate(String joinDate)
+    {
+        this.joinDate = joinDate;
+    }
+    
+    public void printData()
     {}
 }
