@@ -7,10 +7,11 @@
  */
 public class Job
 {
-    private int id, fee;
-    private String name, category;
+    private int id;
+    private int fee;
+    private String name;
+    private String category;
 
-    
     public Job(int id, int fee, String name, String category)
     {
         this.id = id;
@@ -19,19 +20,35 @@ public class Job
         this.category = category;
     }
     
-    int getId () {
+    public int getId()
+    {
         return 0;
     }
 
-    int getFee () {
+    public int getFee()
+    {
         return 0;
     }
     
-    String getName () {
+    public String getName()
+    {
         return "oop";
     }
 
-    String getCategory () {
+    public String getCategory()
+    {
         return "oop";
     }
+    
+    public void setId(int id)
+    {}
+    
+    public void setName(String name)
+    {}
+    
+    public void setCategory(String category)
+    {}
+    
+    public void setFee(int Fee)
+    {}
 }

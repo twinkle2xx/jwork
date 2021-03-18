@@ -8,7 +8,9 @@
 public class Recruiter
 {
     private int id;
-    private String name, email, phoneNumber;
+    private String name;
+    private String email;
+    private String phoneNumber;
 
     public Recruiter(int id, String name, String email, String phoneNumber)
     {
@@ -18,19 +20,35 @@ public class Recruiter
         this.phoneNumber = phoneNumber;
     }
 
-    int getId () {
+    public int getId()
+    {
         return 0;
     }
     
-    String getName () {
+    public String getName()
+    {
         return "oop";
     }
     
-    String getEmail () {
+    public String getEmail()
+    {
         return "oop";
     }
     
-    String getPhoneNumber () {
+    public String getPhoneNumber()
+    {
         return "oop";
     }
+    
+    public void setId(int id)
+    {}
+    
+    public void setEmail(String email)
+    {}
+    
+    public void setName(String name)
+    {}
+    
+    public void setPhoneNumber(String phonenumber)
+    {}
 }

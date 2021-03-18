@@ -22,24 +22,43 @@ public class Jobseeker
         this.joinDate = joinDate;
     }
     
-    int getId () {
+    public int getId()
+    {
         return 0;
     }
   
-    String getName () {
+    public String getName()
+    {
         return "oop";
     }
 
-    String getEmail () {
+    public String getEmail()
+    {
         return "oop";
     }
 
-    String getPassword () {
+    public String getPassword()
+    {
         return "oop";
     }
 
-    String getJoinDate () {
+    public String getJoinDate()
+    {
         return "oop";
     }
 
+    public void setId(int id)
+    {}
+    
+    public void setEmail(String email)
+    {}
+    
+    public void setName(String name)
+    {}
+    
+    public void setPassword(String password)
+    {}
+    
+    public void setJoinDate(String joinDate)
+    {}
 }

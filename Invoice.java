@@ -7,7 +7,9 @@
  */
 public class Invoice
 {
-    private int id, idJob, totalFee;
+    private int id;
+    private int idJob;
+    private int totalFee;
     private String date;
 
     public Invoice(int id, int idJob, int totalFee, String date)
@@ -18,20 +20,35 @@ public class Invoice
        this.date = date;
     }
 
-    int getId () {
+    public int getId()
+    {
         return 0;
     }
     
-    int getJob () {
+    public int getJob()
+    {
         return 0;
     }
     
-    String getDate () {
+    public String getDate()
+    {
         return "oop";
     }
     
-    int getTotalFee () {
+    public int getTotalFee()
+    {
         return 0;
     }
-       
+    
+    public void setId(int id)
+    {}
+    
+    public void setIdJobs(int idJobs)
+    {}
+    
+    public void setDate(String date)
+    {}
+    
+    public void setTotalFee(int totalFee)
+    {}
 }
