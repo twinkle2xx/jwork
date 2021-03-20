@@ -1,19 +1,28 @@
 
 /**
- * Write a description of class Job here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Ailsa Syaffa Dynia
+ * @version: Modul 2 - Case Study (18/03/2021)
  */
 public class Job
 {
-    private int id;
-    private int fee;
-    private String name;
-    private String category;
+    /**
+     deklarasi variabel
+    */
+    private int id; //deklarasi variabel int
+    private int fee; //deklarasi variabel int
+    private String name;//deklarasi variabel String
+    private String category;//deklarasi variabel String
     
     public Recruiter recruiter;
     
+    /**
+     * constructor dari job
+     * @param id dari job
+     * @param nama dari job
+     * @param perekrut dari recruiter
+     * @param fee dari job
+     * @param kategori dari job
+     */
     public Job(int id, int fee, String name, String category, Recruiter recruiter)
     {
         this.id = id;
@@ -23,55 +32,101 @@ public class Job
         this.recruiter = recruiter;
     }
     
-    public int getId()
+    /**
+    * getter id dari jobseeker
+    * @return id dari jobseeker
+    */
+   public int getId()
     {
-        return this.id;
+        return id;
     }
 
-    public int getFee()
+    /**
+    * getter fee jobseeker
+    * @return fee jobseeker
+    */
+   public int getFee()
     {
-        return this.fee;
+        return fee;
     }
     
-    public String getName()
+    /**
+    * getter nama jobseeker
+    * @return name jobseeker
+    */
+   public String getName()
     {
-        return this.name;
+        return name;
     }
 
-    public String getCategory()
+    /**
+    * getter kategori jobseeker
+    * @return category jobseeker
+    */
+   public String getCategory()
     {
-        return this.category;
+        return category;
     }
     
-    public Recruiter getRecruiter()
+    /**
+    * setter rekruiter dari recruiter
+    * @param recruiter dari recruiter
+    */
+   public Recruiter getRecruiter()
     {
-        return this.recruiter;
+        return recruiter;
     }
     
-    public void setId(int id)
+    /**
+    * setter id invoice
+    * @param id invoice
+    */    
+   public void setId(int id)
     {
         this.id = id;
     }
     
-    public void setName(String name)
+    /**
+    * setter nama invoice
+    * @param name invoice
+    */
+   public void setName(String name)
     {
         this.name = name;
     }
     
-    public void setCategory(String category)
+    /**
+    * setter kategori invoice
+    * @param category invoice
+    */
+   public void setCategory(String category)
     {
         this.category = category;
     }
     
-    public void setFee(int Fee)
+    /**
+    * setter fee invoice
+    * @param fee invoice
+    */
+   public void setFee(int fee)
     {
         this.fee = fee;
     }
     
-    public void setRecruiter(Recruiter recruiter)
+    /**
+    * setter rekruiter invoice
+    * @param recruiter invoice
+    */
+   public void setRecruiter(Recruiter recruiter)
     {
         this.recruiter = recruiter;
     }
     
-    public void printData(){}
+    /**
+     * Menampilkan nama pekerjaan
+     */
+    public void printData()
+    {
+        System.out.println("Pekerjaan" + getName());
+    }
 }

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=DatabaseRecruiter
+comment0.text=\r\n\ @author\:\ Ailsa\ Syaffa\ Dynia\r\n\ @version\:\ Modul\ 2\ -\ Case\ Study\ (18/03/2021)\r\n
+comment1.params=
+comment1.target=DatabaseRecruiter()
+comment1.text=\r\n\ constructor\ dari\ DatabaseRecruiter\r\n
+comment2.params=recruiter
+comment2.target=boolean\ addRecruiter(Recruiter)
+comment2.text=\r\n\ metode\ addJRecruiter\ dari\ DatabaseRecruiter\r\n\ @return\ false\r\n
+comment3.params=recruiter
+comment3.target=boolean\ removeRecruiter(Recruiter)
+comment3.text=\r\n\ metode\ removeRecruiter\ dari\ DatabaseRecruiter\r\n\ @return\ false\r\n
+comment4.params=
+comment4.target=Recruiter\ getRecruiter()
+comment4.text=\r\n\ getter\ job\ dari\ databaserecruiter\r\n\ @return\ null\r\n
+comment5.params=
+comment5.target=java.lang.String[]\ getListRecruiter()
+comment5.text=\r\n\ getter\ getlisrecruiter\ dari\ databaserecruiter\r\n\ @return\ null\r\n
+numComments=6

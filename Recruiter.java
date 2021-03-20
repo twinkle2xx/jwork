@@ -1,19 +1,28 @@
 
 /**
- * Write a description of class Recruiter here.
- *
- * @author (your name)
- * @version (a version number or a date)
+/**
+ * @author: Ailsa Syaffa Dynia
+ * @version: Modul 2 - Case Study (18/03/2021)
  */
 public class Recruiter
 {
-    private int id;
-    private String name;
-    private String email;
-    private String phoneNumber;
-    
+    /**
+     deklarasi variabel
+    */
+    private int id; //deklarasi variabel int
+    private String name; //deklarasi variabel String
+    private String email; //deklarasi variabel String
+    private String phoneNumber; //deklarasi variabel String
     public Location location;
     
+    /**
+     * constructor dari recruiter
+     * @param id dari recruiter
+     * @param nama dari recruiter
+     * @param email dari recruiter
+     * @param phoneNumber dari recruiter
+     * @param lokasi dari location
+     */
     public Recruiter(int id, String name, String email, String phoneNumber, Location location)
     {
         this.id = id;
@@ -23,53 +32,99 @@ public class Recruiter
         this.location = location;
     }
 
-    public int getId()
+    /**
+    * getter id dari recruiter
+    * @return id dari recruiter
+    */
+   public int getId()
     {
-        return this.id;
+        return id;
     }
     
-    public String getName()
+    /**
+    * getter nama dari recruiter
+    * @return name dari recruiter
+    */
+   public String getName()
     {
-        return this.name;
+        return name;
     }
     
-    public String getEmail()
+    /**
+    * getter email dari recruiter
+    * @return email dari recruiter
+    */
+   public String getEmail()
     {
-        return this.email;
+        return email;
     }
     
-    public String getPhoneNumber()
+    /**
+    * getter nomor telepon dari recruiter
+    * @return phonenumber dari recruiter
+    */
+   public String getPhoneNumber()
     {
-        return this.phoneNumber;
+        return phoneNumber;
     }
     
-    public Location getLocation()
+    /**
+    * getter lokasi dari recruiter
+    * @return location dari recruiter
+    */
+   public Location getLocation()
     {
-        return this.location;
+        return location;
     }
     
-    public void setId(int id)
+    /**
+    * setter id recruiter
+    * @param id recruiter
+    */
+   public void setId(int id)
     {
         this.id = id;
     }
     
-    public void setEmail(String email)
+    /**
+    * setter email recruiter
+    * @param email recruiter
+    */
+   public void setEmail(String email)
     {
         this.email = email;
     }
     
-    public void setName(String name)
+    /**
+    * setter nama recruiter
+    * @param name recruiter
+    */
+   public void setName(String name)
     {
         this.name = name;
     }
     
-    public void setPhoneNumber(String phonenumber)
+    /**
+    * setter nomor telepon recruiter
+    * @param phonenumber recruiter
+    */
+   public void setPhoneNumber(String phonenumber)
     {
         this.phoneNumber = phoneNumber;
     }
     
-    public void setLocation(Location location){}
+    /**
+    * setter lokasi recruiter
+    * @param location recruiter
+    */
+   public void setLocation(Location location)
+    {
+        this.location = location;
+    }
     
+    /**
+     * menampilkan nama perekrut dari recruiter
+     */
     public void printData()
     {
         System.out.println("Perekrut" + getName());

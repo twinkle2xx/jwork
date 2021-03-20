@@ -1,16 +1,23 @@
 
 /**
- * Write a description of class Location here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Ailsa Syaffa Dynia
+ * @version: Modul 2 - Case Study (18/03/2021)
  */
 public class Location
 {
-    private String province;
-    private String city;
-    private String description;
+    /**
+     deklarasi variabel
+    */
+    private String province; //deklarasi variabel String
+    private String city; //deklarasi variabel String
+    private String description; //deklarasi variabel String
     
+     /**
+     * constructor dari location
+     * @param province: provinsi dari location
+     * @param city: kota dari location
+     * @param description: deskripsi dari location
+     */
     public Location(String province, String city, String description)
     {
         this.province = province;
@@ -18,36 +25,63 @@ public class Location
         this.description = description;
     }
     
+    /**
+     * getter provinsi dari location
+     * @return province dari location
+     */
     public String getProvince()
     {
-        return this.province;
+        return province;
     }
     
+    /**
+     * getter kota dari location
+     * @return city dari location
+     */
     public String getCity()
     {
-        return this.city;
+        return city;
     }
     
-    public String getDescription()
+    /**
+    * getter deskripsi dari location
+    * @return description dari location
+    */
+   public String getDescription()
     {
-        return this.description;
+        return description;
     }
     
+    /**
+     * setter provinsi location
+     * @return province dari location
+     */
     public void setProvince(String province)
     {
         this.province = province;
     }
     
+    /**
+     * setter kota location
+     * @param city location
+     */
     public void setCity(String city)
     {
         this.city = city;
     }
     
+    /**
+     * setter deskripsi location
+     * @param description location
+     */
     public void setDescription(String description)
     {
         this.description = description;
     }
     
+    /**
+     * menampilkan nama provinsi dari location
+     */
     public void printData()
     {
         System.out.println("Provinsi" + getProvince());

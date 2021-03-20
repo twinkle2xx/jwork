@@ -1,19 +1,27 @@
 
 /**
- * Write a description of class Invoice here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Ailsa Syaffa Dynia
+ * @version: Modul 2 - Case Study (18/03/2021)
  */
 public class Invoice
 {
-    private int id;
-    private int idJob;
-    private int totalFee;
-    private String date;
-    
+    /**
+     deklarasi variabel
+    */
+    private int id; //deklarasi variabel int
+    private int idJob; //deklarasi variabel int
+    private int totalFee; //deklarasi variabel int
+    private String date; //deklarasi variabel String
     public Jobseeker jobseeker;
 
+    /**
+     * constructor dari invoice
+     * @param id dari invoice
+     * @param idJob dari invoice
+     * @param date dari invoice
+     * @param totalfee dari invoice
+     * @param jobseeker dari jobseeker
+     */
     public Invoice(int id, int idJob, int totalFee, String date, Jobseeker jobseeker)
     {
        this.id = id;
@@ -23,52 +31,101 @@ public class Invoice
        this.jobseeker = jobseeker;
     }
 
-    public int getId()
+    /**
+    * getter id dari invoice
+    * @return id dari invoice
+    */
+   public int getId()
     {
-        return this.id;
+        return id;
     }
     
-    public int getIdJob()
+    /**
+    * getter idjob invoice
+    * @return idjob invoice
+    */
+   public int getIdJob()
     {
-        return this.idJob;
+        return idJob;
     }
     
-    public String getDate()
+    /**
+    * getter tanggal dari invoice
+    * @return date dari invoice
+    */
+   public String getDate()
     {
-        return this.date;
+        return date;
     }
     
-    public int getTotalFee()
+    /**
+    * getter jumlah biaya dari invoice
+    * @return totalfee dari invoice
+    */
+   public int getTotalFee()
     {
-        return this.totalFee;
+        return totalFee;
     }
     
-    public Jobseeker getJobseeker()
+    /**
+    * getter jobseeker dari jobseeker
+    * @return jobseeker dari jobseeker
+    */
+   public Jobseeker getJobseeker()
     {
-        return this.jobseeker;
+        return jobseeker;
     }
     
-    public void setId(int id)
+    /**
+    * setter id dari invoice
+    * @param id dari invoice
+    */
+   public void setId(int id)
     {
         this.id = id;
     }
     
-    public void setIdJobs(int idJobs)
+    /**
+    * setter idjob dari invoice
+    * @param idjob dari invoice
+    */
+   public void setIdJob(int idJob)
     {
         this.idJob = idJob;
     }
     
-    public void setDate(String date)
+    /**
+    * setter tanggal dari invoice
+    * @param date dari invoice
+    */
+   public void setDate(String date)
     {
         this.date = date;
     }
     
-    public void setTotalFee(int totalFee)
+    /**
+    * setter jumlah biaya dari invoice
+    * @param total fee dari invoice
+    */
+   public void setTotalFee(int totalFee)
     {
         this.totalFee = totalFee;
     }
     
-    public void setJobseeker(Jobseeker jobseeker){}
+    /**
+    * setter jobseeker dari invoice
+    * @param jobseeker dari invoice
+    */
+   public void setJobseeker(Jobseeker jobseeker)
+    {
+        this.jobseeker = jobseeker;
+    }
     
-    public void printData(){}
+    /**
+     * Menampilkan jumla harga
+     */
+    public void printData()
+    {
+        System.out.println("Jumlah Harga" + getTotalFee());
+    }
 }
