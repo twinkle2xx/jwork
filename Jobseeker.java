@@ -126,6 +126,11 @@ public class Jobseeker
      */
      public void printData()
     {
-        System.out.println("Pencari Kerja" + getName());
+        System.out.println("\n====Jobseeker====" +
+            "\nID: " + id +
+            "\nPencari Kerja: " + name +
+            "\nEmail: " + email +
+            "\nPassword: " + password +
+            "\nTanggal Bergabung: " + joinDate);
     }
 }

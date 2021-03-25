@@ -1,27 +1,20 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 3 - Case Study (25/03/2021)
  */
 public class DatabaseJob
 {
     /**
      * deklarasi variabel
      */
-   private String[] listJob;
-   
-   /**
-     * constructor dari DatabaseJob
-     */
-    
-   public DatabaseJob()
-   {}
-   
+   private static String[] listJob;
+      
    /**
      * metode addJob dari DatabaseJob
      * @return false
      */
-   public boolean addJob(Job job)
+   public static boolean addJob(Job job)
    {
        return false;
    }
@@ -30,7 +23,7 @@ public class DatabaseJob
      * metode Removejob dari DatabaseJob
      * @return false
      */
-   public boolean removeJob(Job job)
+   public static boolean removeJob(Job job)
    {
        return false;
    }
@@ -39,7 +32,7 @@ public class DatabaseJob
      * getter job dari databasejob
      * @return null
      */
-   public Job getJob()
+   public static Job getJob()
    {
        return null;
    }
@@ -48,8 +41,8 @@ public class DatabaseJob
      * getter getlisjob dari databasejob
      * @return null
      */
-   public String[] getListJob(){
-       return null;
+   public static String[] getListJob(){
+       return listJob;
    }
 }
 

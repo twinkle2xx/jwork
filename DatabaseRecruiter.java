@@ -1,27 +1,20 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 3 - Case Study (25/03/2021)
  */
 public class DatabaseRecruiter
 {
     /**
      * deklarasi variabel
      */
-   private String[] listRecruiter;
-   
+   private static String[] listRecruiter;
+        
    /**
-     * constructor dari DatabaseRecruiter
-     */
-    
-   public DatabaseRecruiter()
-   {}
-   
-   /**
-     * metode addJRecruiter dari DatabaseRecruiter
+     * metode addRecruiter dari DatabaseRecruiter
      * @return false
      */
-   public boolean addRecruiter(Recruiter recruiter)
+   public static boolean addRecruiter(Recruiter recruiter)
    {
        return false;
    }
@@ -30,7 +23,7 @@ public class DatabaseRecruiter
      * metode removeRecruiter dari DatabaseRecruiter
      * @return false
      */
-   public boolean removeRecruiter(Recruiter recruiter)
+   public static boolean removeRecruiter(Recruiter recruiter)
    {
        return false;
    }
@@ -39,7 +32,7 @@ public class DatabaseRecruiter
      * getter job dari databaserecruiter
      * @return null
      */
-   public Recruiter getRecruiter()
+   public static Recruiter getRecruiter()
    {
        return null;
    }
@@ -48,8 +41,8 @@ public class DatabaseRecruiter
      * getter getlisrecruiter dari databaserecruiter
      * @return null
      */
-   public String[] getListRecruiter(){
-       return null;
+   public static String[] getListRecruiter(){
+       return listRecruiter;
    }
 }
 

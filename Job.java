@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 3 - Case Study (25/03/2021)
  */
 public class Job
 {
@@ -11,9 +11,8 @@ public class Job
     private int id; //deklarasi variabel int
     private int fee; //deklarasi variabel int
     private String name;//deklarasi variabel String
-    private String category;//deklarasi variabel String
-    
     public Recruiter recruiter;
+    public JobCategory category;
     
     /**
      * constructor dari job
@@ -23,7 +22,7 @@ public class Job
      * @param fee dari job
      * @param kategori dari job
      */
-    public Job(int id, int fee, String name, String category, Recruiter recruiter)
+    public Job(int id, int fee, String name, JobCategory category, Recruiter recruiter)
     {
         this.id = id;
         this.fee = fee;
@@ -63,7 +62,7 @@ public class Job
     * getter kategori jobseeker
     * @return category jobseeker
     */
-   public String getCategory()
+   public JobCategory getCategory()
     {
         return category;
     }
@@ -99,7 +98,7 @@ public class Job
     * setter kategori invoice
     * @param category invoice
     */
-   public void setCategory(String category)
+   public void setCategory(JobCategory category)
     {
         this.category = category;
     }
@@ -127,6 +126,12 @@ public class Job
      */
     public void printData()
     {
-        System.out.println("Pekerjaan" + getName());
+        System.out.println("\n====JOB====" +
+            "\nID: " + id +
+            "\nName: " + name +
+            "\nRecruiter: " + recruiter.getName() +
+            "\nCity: " +  recruiter.getLocation().getCity() +
+            "\nFee: " + fee +
+            "\nCategory: " + category.toString());
     }
 }

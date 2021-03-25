@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 3 - Case Study (25/03/2021)
  */
 public class Invoice
 {
@@ -126,6 +126,11 @@ public class Invoice
      */
     public void printData()
     {
-        System.out.println("Jumlah Harga" + getTotalFee());
+        System.out.println("\n====Jobseeker====" +
+            "\nID: " + id +
+            "\nID Pekerjaan: " + idJob +
+            "\nJumlah Biaya: " + totalFee +
+            "\nTanggal: " + date +
+            "\nPencari Kerja: " + jobseeker);
     }
 }

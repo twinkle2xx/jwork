@@ -127,6 +127,11 @@ public class Recruiter
      */
     public void printData()
     {
-        System.out.println("Perekrut" + getName());
+        System.out.println("\n====Recruiter====" +
+            "\nID: " + id +
+            "\nPerekrut: " + name +
+            "\nEmail: " + email +
+            "\nNomor Telepon: " + phoneNumber +
+            "\nLokasi: " + location);
     }
 }
