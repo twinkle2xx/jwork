@@ -13,6 +13,8 @@ public class Invoice
     private int totalFee; //deklarasi variabel int
     private String date; //deklarasi variabel String
     public Jobseeker jobseeker;
+    public PaymentType paymentType;
+    public InvoiceStatus status;
 
     /**
      * constructor dari invoice
@@ -20,15 +22,19 @@ public class Invoice
      * @param idJob dari invoice
      * @param date dari invoice
      * @param totalfee dari invoice
-     * @param jobseeker dari jobseeker
+     * @param jobseeker dari invoice
+     * @param paymentType dari invoice
+     * @param status dari invoice
      */
-    public Invoice(int id, int idJob, int totalFee, String date, Jobseeker jobseeker)
+    public Invoice(int id, int idJob, int totalFee, String date, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
     {
        this.id = id;
        this.idJob = idJob;
        this.totalFee = totalFee;
        this.date = date;
        this.jobseeker = jobseeker;
+       this.paymentType = paymentType;
+       this.status = status;
     }
 
     /**
@@ -67,9 +73,27 @@ public class Invoice
         return totalFee;
     }
     
+   /**
+    * getter tipe pembayaran dari invoice
+    * @return paymentType dari invoice
+    */
+   public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
+    
+   /**
+    * getter status dari invoice
+    * @return status dari invoice
+    */
+   public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    } 
+    
     /**
-    * getter jobseeker dari jobseeker
-    * @return jobseeker dari jobseeker
+    * getter jobseeker dari invoice
+    * @return jobseeker dari invoice
     */
    public Jobseeker getJobseeker()
     {
@@ -122,15 +146,34 @@ public class Invoice
     }
     
     /**
-     * Menampilkan jumla harga
+    * setter tipe pembayaran dari invoice
+    * @param paymentType dari invoice
+    */
+   public void setPaymentType(PaymentType paymentType)
+    {
+        this.paymentType = paymentType;
+    }
+    
+    /**
+    * setter status dari invoice
+    * @param status dari invoice
+    */
+   public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
+    
+    /**
+     * Menampilkan jumlah harga
      */
     public void printData()
     {
-        System.out.println("\n====Jobseeker====" +
+        System.out.println("\n====Invoice====" +
             "\nID: " + id +
-            "\nID Pekerjaan: " + idJob +
-            "\nJumlah Biaya: " + totalFee +
-            "\nTanggal: " + date +
-            "\nPencari Kerja: " + jobseeker);
+            "\nID Job: " + idJob +
+            "\nDate: " + date +
+            "\nSeeker: " + jobseeker.getName() +
+            "\nFee: " + totalFee +
+            "\nStatus: " + status);
     }
 }
