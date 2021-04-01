@@ -1,8 +1,7 @@
 
 /**
-/**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 4 - Case Study (01/04/2021)
  */
 public class Recruiter
 {

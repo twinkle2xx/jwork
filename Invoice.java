@@ -1,40 +1,41 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 3 - Case Study (25/03/2021)
+ * @version: Modul 4 - Case Study (01/04/2021)
  */
-public class Invoice
+public abstract class Invoice
 {
     /**
      deklarasi variabel
     */
     private int id; //deklarasi variabel int
-    private int idJob; //deklarasi variabel int
-    private int totalFee; //deklarasi variabel int
+    //private int idJob; //deklarasi variabel int
+    protected int totalFee; //deklarasi variabel int
     private String date; //deklarasi variabel String
     public Jobseeker jobseeker;
-    public PaymentType paymentType;
-    public InvoiceStatus status;
+   // public PaymentType paymentType;
+    public InvoiceStatus invoiceStatus;
+    public Job job;
 
     /**
      * constructor dari invoice
      * @param id dari invoice
-     * @param idJob dari invoice
+     * @param job dari invoice
      * @param date dari invoice
      * @param totalfee dari invoice
      * @param jobseeker dari invoice
      * @param paymentType dari invoice
      * @param status dari invoice
      */
-    public Invoice(int id, int idJob, int totalFee, String date, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
+    public Invoice(int id, Job job, int totalFee, String date, Jobseeker jobseeker, InvoiceStatus status)
     {
        this.id = id;
-       this.idJob = idJob;
+       this.job = job;
        this.totalFee = totalFee;
        this.date = date;
        this.jobseeker = jobseeker;
-       this.paymentType = paymentType;
-       this.status = status;
+       //this.paymentType = paymentType;
+       this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -47,12 +48,12 @@ public class Invoice
     }
     
     /**
-    * getter idjob invoice
-    * @return idjob invoice
+    * getter job invoice
+    * @return job invoice
     */
-   public int getIdJob()
+   public Job getJob()
     {
-        return idJob;
+        return job;
     }
     
     /**
@@ -75,12 +76,8 @@ public class Invoice
     
    /**
     * getter tipe pembayaran dari invoice
-    * @return paymentType dari invoice
     */
-   public PaymentType getPaymentType()
-    {
-        return paymentType;
-    }
+   public abstract PaymentType PaymentType();
     
    /**
     * getter status dari invoice
@@ -88,7 +85,7 @@ public class Invoice
     */
    public InvoiceStatus getInvoiceStatus()
     {
-        return status;
+        return invoiceStatus;
     } 
     
     /**
@@ -113,9 +110,9 @@ public class Invoice
     * setter idjob dari invoice
     * @param idjob dari invoice
     */
-   public void setIdJob(int idJob)
+   public void setJob(Job job)
     {
-        this.idJob = idJob;
+        this.job = job;
     }
     
     /**
@@ -127,15 +124,8 @@ public class Invoice
         this.date = date;
     }
     
-    /**
-    * setter jumlah biaya dari invoice
-    * @param total fee dari invoice
-    */
-   public void setTotalFee(int totalFee)
-    {
-        this.totalFee = totalFee;
-    }
-    
+    public abstract void setTotalFee();
+       
     /**
     * setter jobseeker dari invoice
     * @param jobseeker dari invoice
@@ -149,10 +139,7 @@ public class Invoice
     * setter tipe pembayaran dari invoice
     * @param paymentType dari invoice
     */
-   public void setPaymentType(PaymentType paymentType)
-    {
-        this.paymentType = paymentType;
-    }
+   //public void setPaymentType(PaymentType paymentType);   
     
     /**
     * setter status dari invoice
@@ -160,14 +147,14 @@ public class Invoice
     */
    public void setInvoiceStatus(InvoiceStatus status)
     {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     
     /**
      * Menampilkan jumlah harga
      */
-    public void printData()
-    {
+    public abstract void printData();
+    /*{
         System.out.println("\n====Invoice====" +
             "\nID: " + id +
             "\nID Job: " + idJob +
@@ -175,5 +162,5 @@ public class Invoice
             "\nSeeker: " + jobseeker.getName() +
             "\nFee: " + totalFee +
             "\nStatus: " + status);
-    }
+    }*/
 }
