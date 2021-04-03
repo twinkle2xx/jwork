@@ -32,7 +32,7 @@ public class DatabaseBonus
      * getter job dari databaserecruiter
      * @return null
      */
-   public static Recruiter getRecruiter()
+   public static Bonus getBonus()
    {
        return null;
    }

@@ -27,11 +27,11 @@ public abstract class Invoice
      * @param paymentType dari invoice
      * @param status dari invoice
      */
-    public Invoice(int id, Job job, int totalFee, String date, Jobseeker jobseeker, InvoiceStatus status)
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus status)
     {
        this.id = id;
        this.job = job;
-       this.totalFee = totalFee;
+       //this.totalFee = totalFee;
        this.date = date;
        this.jobseeker = jobseeker;
        //this.paymentType = paymentType;
@@ -77,7 +77,7 @@ public abstract class Invoice
    /**
     * getter tipe pembayaran dari invoice
     */
-   public abstract PaymentType PaymentType();
+   public abstract PaymentType getPaymentType();
     
    /**
     * getter status dari invoice
@@ -124,7 +124,7 @@ public abstract class Invoice
         this.date = date;
     }
     
-    public abstract void setTotalFee();
+   public abstract void setTotalFee();
        
     /**
     * setter jobseeker dari invoice
@@ -145,7 +145,7 @@ public abstract class Invoice
     * setter status dari invoice
     * @param status dari invoice
     */
-   public void setInvoiceStatus(InvoiceStatus status)
+   public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;
     }
@@ -154,13 +154,5 @@ public abstract class Invoice
      * Menampilkan jumlah harga
      */
     public abstract void printData();
-    /*{
-        System.out.println("\n====Invoice====" +
-            "\nID: " + id +
-            "\nID Job: " + idJob +
-            "\nDate: " + date +
-            "\nSeeker: " + jobseeker.getName() +
-            "\nFee: " + totalFee +
-            "\nStatus: " + status);
-    }*/
+    
 }
