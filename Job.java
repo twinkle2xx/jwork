@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 3 - Case Study (25/03/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
 public class Job
 {
@@ -122,16 +122,16 @@ public class Job
     }
     
     /**
-     * Menampilkan nama pekerjaan
+     * menampilkan hasil 
      */
-    public void printData()
+     public String toString()
     {
-        System.out.println("\n====JOB====" +
+        return"\n====Job====" +
             "\nID: " + id +
             "\nName: " + name +
             "\nRecruiter: " + recruiter.getName() +
-            "\nCity: " +  recruiter.getLocation().getCity() +
+            "\nCity: " + recruiter.getLocation().getCity() +
             "\nFee: " + fee +
-            "\nCategory: " + category.toString());
+            "\nCategory" + category.toString();
     }
 }

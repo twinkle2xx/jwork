@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 4 - Case Study (01/04/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
 public class Recruiter
 {
@@ -121,16 +121,12 @@ public class Recruiter
         this.location = location;
     }
     
-    /**
-     * menampilkan nama perekrut dari recruiter
-     */
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n====Recruiter====" +
+        return"\n====Recruiter====" +
             "\nID: " + id +
-            "\nPerekrut: " + name +
-            "\nEmail: " + email +
-            "\nNomor Telepon: " + phoneNumber +
-            "\nLokasi: " + location);
+            "\nName: " + name +
+            "\nPhone Number: " + phoneNumber +
+            "\nLocation: " + location.getCity();
     }
 }

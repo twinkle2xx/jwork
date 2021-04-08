@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 4 - Post Test (03/04/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
 public class BankPayment extends Invoice
 {

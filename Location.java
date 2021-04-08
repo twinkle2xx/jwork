@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
 public class Location
 {
@@ -80,13 +80,13 @@ public class Location
     }
     
     /**
-     * menampilkan nama provinsi dari location
-     */
-    public void printData()
+     * menampilkan hasil
+    */
+    public String toString()
     {
-        System.out.println("\n====Location====" +
-            "\nProvinsi: " + province +
-            "\nKota: " + city +
-            "\nDeskripsi: " + description);
+        return "\n====Location====" +
+            "\nProvince: " + province +
+            "\nCity: " + city +
+            "\nDescription: " + description;
     }
 }

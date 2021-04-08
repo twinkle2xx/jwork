@@ -1,7 +1,7 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 4 - Case Study (01/04/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
 public class Bonus
 {
@@ -122,15 +122,15 @@ public class Bonus
     }
     
     /**
-     * menampilkan nama perekrut dari recruiter
+     * menampilkan hasil
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n====Recruiter====" +
+        return "\n====Bonus====" +
             "\nID: " + id +
             "\nReferral Code: " + referralCode +
             "\nExtra Fee: " + extraFee +
             "\nMin Total Fee: " + minTotalFee +
-            "\nActive: " + active);
+            "\nActive: " + active;
     }
 }

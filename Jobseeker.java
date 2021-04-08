@@ -1,8 +1,11 @@
 
 /**
  * @author: Ailsa Syaffa Dynia
- * @version: Modul 2 - Case Study (18/03/2021)
+ * @version: Modul 5 - Case Study (08/04/2021)
  */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.regex.*;
 public class Jobseeker
 {
     /**
@@ -12,7 +15,7 @@ public class Jobseeker
     private String name; //deklarasi variabel String
     private String email; //deklarasi variabel String
     private String password; //deklarasi variabel String
-    private String joinDate; //deklarasi variabel String
+    private Calendar joinDate; //deklarasi variabel String
 
     /**
      * constructor dari jobseeker
@@ -22,15 +25,33 @@ public class Jobseeker
      * @param password dari jobseeker
      * @param joindate dari jobseeker
      */
-    public Jobseeker(int id, String name, String email, String password, String joinDate)
+    public Jobseeker(int id, String name, String email, String password, Calendar joinDate)
     {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
+        this.setEmail(email);
+        this.setPassword(password);
         this.joinDate = joinDate;
     }
     
+    public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth)
+    {
+        this.id = id;
+        this.name = name;
+        this.setEmail(email);
+        this.setPassword(password);
+        this.setJoinDate(year, month, dayOfMonth);
+    }
+    
+    public Jobseeker(int id, String name, String email, String password)
+    {
+        this.id = id;
+        this.name = name;
+        this.setEmail(email);
+        this.setPassword(password);
+        this.joinDate = new GregorianCalendar();
+    }
+           
     /**
     * getter id dari jobseeker
     * @return id dari jobseeker
@@ -71,7 +92,7 @@ public class Jobseeker
     * getter tanggal masuk dari jobseeker
     * @return joindate dari jobseeker
     */
-    public String getJoinDate()
+   public Calendar getJoinDate()
     {
         return joinDate;
     }
@@ -80,7 +101,7 @@ public class Jobseeker
     * setter id dari jobseeker
     * @param id dari jobseeker
     */
-    public void setId(int id)
+   public void setId(int id)
     {
         this.id = id;
     }
@@ -89,9 +110,16 @@ public class Jobseeker
     * setter email dari jobseeker
     * @param email dari jobseeker
     */
-    public void setEmail(String email)
+   public void setEmail(String email)
     {
-        this.email = email;
+        Pattern pat = Pattern.compile("");
+        Matcher mat = pat.matcher(email);
+        if (mat.matches())
+        {
+            this.email = email;
+            return;
+        }
+        this.email = "";
     }
     
     /**
@@ -107,30 +135,46 @@ public class Jobseeker
     * setter password dari jobseeker
     * @param password dari jobseeker
     */
-    public void setPassword(String password)
+   public void setPassword(String password)
     {
-        this.password = password;
+        Pattern pat = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$");
+        Matcher mat = pat.matcher(password);
+        if (mat.matches())
+        {
+            this.password = password;
+            return;
+        }
+        this.password = "";
     }
     
     /**
     * setter tanggal masuk dari jobseeker
     * @param joindate dari jobseeker
     */
-    public void setJoinDate(String joinDate)
+   public void setJoinDate(Calendar joinDate)
     {
         this.joinDate = joinDate;
     }
     
     /**
-     * menampilkan nama jobseeker 
-     */
-     public void printData()
+    * setter tanggal masuk dari jobseeker
+    * @param joindate dari jobseeker
+    */
+    public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        System.out.println("\n====Jobseeker====" +
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+    }
+    
+    /**
+     * menampilkan hasil 
+     */
+     public String toString()
+    {
+        return"\n====Jobseeker====" +
             "\nID: " + id +
-            "\nPencari Kerja: " + name +
+            "\nName: " + name +
             "\nEmail: " + email +
             "\nPassword: " + password +
-            "\nTanggal Bergabung: " + joinDate);
+            "\nJoin Date: " + joinDate.toString();
     }
 }
