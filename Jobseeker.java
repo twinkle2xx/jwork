@@ -5,7 +5,10 @@
  */
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.regex.*;
+import java.text.SimpleDateFormat;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 public class Jobseeker
 {
     /**
@@ -112,7 +115,7 @@ public class Jobseeker
     */
    public void setEmail(String email)
     {
-        Pattern pat = Pattern.compile("");
+        Pattern pat = Pattern.compile("[\\w]*[@[\\w]{1}[-\\w\\S]*");
         Matcher mat = pat.matcher(email);
         if (mat.matches())
         {
@@ -170,11 +173,13 @@ public class Jobseeker
      */
      public String toString()
     {
+        SimpleDateFormat dataFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String strDate = dataFormat.format(joinDate);
         return"\n====Jobseeker====" +
             "\nID: " + id +
             "\nName: " + name +
             "\nEmail: " + email +
             "\nPassword: " + password +
-            "\nJoin Date: " + joinDate.toString();
+            "\nJoin Date: " + strDate;
     }
 }
