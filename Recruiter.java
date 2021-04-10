@@ -12,7 +12,7 @@ public class Recruiter
     private String name; //deklarasi variabel String
     private String email; //deklarasi variabel String
     private String phoneNumber; //deklarasi variabel String
-    public Location location;
+    private Location location;
     
     /**
      * constructor dari recruiter

@@ -11,8 +11,8 @@ public class Job
     private int id; //deklarasi variabel int
     private int fee; //deklarasi variabel int
     private String name;//deklarasi variabel String
-    public Recruiter recruiter;
-    public JobCategory category;
+    private Recruiter recruiter;
+    private JobCategory category;
     
     /**
      * constructor dari job

@@ -8,17 +8,17 @@ public class EwalletPayment extends Invoice
     /**
      deklarasi variabel
     */
-    public static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
-    public Bonus bonus;
+    private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
+    private Bonus bonus;
         
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker,invoiceStatus);
+        super(id, job, jobseeker,invoiceStatus);
     }
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker,invoiceStatus);
+        super(id, job, jobseeker,invoiceStatus);
         this.bonus = bonus;
     }
     
@@ -51,21 +51,30 @@ public class EwalletPayment extends Invoice
             super.totalFee = super.getJob().getFee();
         }
     }
-        
-    public void printData()
+       
+    public String toString()
     {
-        System.out.println("\n==========Invoice==========\n");
-        System.out.println("ID = "+ super.getId());
-        System.out.println("\nJob = "+ super.getJob().getName());
-        System.out.println("\nDate = "+ super.getDate());
-        System.out.println("\nSeeker = "+ super.getJobseeker().getName());
-        System.out.println("\nFee = "+ super.totalFee);
-
         if (bonus != null && bonus.getActive() && super.totalFee > bonus.getMinTotalFee() && bonus.getReferralCode() != null)
         {
-            System.out.println("\nReferral Code = "+ bonus.getReferralCode());
+            return"\n====Invoice====" +
+            "\nID: " + "ID = "+ super.getId() +
+            "\nJob = "+ super.getJob().getName() +
+            "\nSeeker = "+ super.getJobseeker().getName() +
+            "\nFee = "+ super.totalFee +
+            "\nReferral Code = "+ bonus.getReferralCode() +
+            "\nStatus = "+ super.getInvoiceStatus().toString()+
+            "\nPayment Type = "+ PAYMENT_TYPE.toString();
         }
-        System.out.println("\nStatus = "+ super.getInvoiceStatus().toString());
-        System.out.println("\nPayment Type = "+ PAYMENT_TYPE.toString());
+        
+        else
+        {
+           return"\n====Invoice====" +
+            "\nID: " + "ID = "+ super.getId() +
+            "\nJob = "+ super.getJob().getName() +
+            "\nSeeker = "+ super.getJobseeker().getName() +
+            "\nFee = "+ super.totalFee +
+            "\nStatus = "+ super.getInvoiceStatus().toString()+
+            "\nPayment Type = "+ PAYMENT_TYPE.toString(); 
+        }
     }
 }

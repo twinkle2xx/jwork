@@ -3,6 +3,10 @@
  * @author: Ailsa Syaffa Dynia
  * @version: Modul 4 - Case Study (01/04/2021)
  */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+
 public abstract class Invoice
 {
     /**
@@ -11,11 +15,11 @@ public abstract class Invoice
     private int id; //deklarasi variabel int
     //private int idJob; //deklarasi variabel int
     protected int totalFee; //deklarasi variabel int
-    private String date; //deklarasi variabel String
-    public Jobseeker jobseeker;
+    private Calendar date; //deklarasi variabel String
+    private Jobseeker jobseeker;
    // public PaymentType paymentType;
-    public InvoiceStatus invoiceStatus;
-    public Job job;
+    private InvoiceStatus invoiceStatus;
+    private Job job;
 
     /**
      * constructor dari invoice
@@ -27,12 +31,12 @@ public abstract class Invoice
      * @param paymentType dari invoice
      * @param status dari invoice
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus status)
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus status)
     {
        this.id = id;
        this.job = job;
        //this.totalFee = totalFee;
-       this.date = date;
+       //this.date = date;
        this.jobseeker = jobseeker;
        //this.paymentType = paymentType;
        this.invoiceStatus = invoiceStatus;
@@ -60,7 +64,7 @@ public abstract class Invoice
     * getter tanggal dari invoice
     * @return date dari invoice
     */
-   public String getDate()
+   public Calendar getDate()
     {
         return date;
     }
@@ -119,9 +123,14 @@ public abstract class Invoice
     * setter tanggal dari invoice
     * @param date dari invoice
     */
-   public void setDate(String date)
+   public void setDate(Calendar date)
     {
         this.date = date;
+    }
+    
+   public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     
    public abstract void setTotalFee();
@@ -153,6 +162,6 @@ public abstract class Invoice
     /**
      * Menampilkan jumlah harga
      */
-    public abstract void printData();
-    
+    public abstract String toString();
+   
 }

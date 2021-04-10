@@ -18,7 +18,7 @@ public class Jobseeker
     private String name; //deklarasi variabel String
     private String email; //deklarasi variabel String
     private String password; //deklarasi variabel String
-    private Calendar joinDate; //deklarasi variabel String
+    public Calendar joinDate; //deklarasi variabel String
 
     /**
      * constructor dari jobseeker
@@ -120,7 +120,6 @@ public class Jobseeker
         if (mat.matches())
         {
             this.email = email;
-            return;
         }
         this.email = "";
     }
@@ -145,7 +144,6 @@ public class Jobseeker
         if (mat.matches())
         {
             this.password = password;
-            return;
         }
         this.password = "";
     }
@@ -165,7 +163,7 @@ public class Jobseeker
     */
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+        this.joinDate = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     
     /**

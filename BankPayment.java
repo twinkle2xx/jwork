@@ -8,17 +8,17 @@ public class BankPayment extends Invoice
     /**
      deklarasi variabel
     */
-    public static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
-    public int adminFee;
+    private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
+    private int adminFee;
         
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker,invoiceStatus);
+        super(id, job, jobseeker,invoiceStatus);
     }
 
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, int adminFee, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, Job job, Jobseeker jobseeker, int adminFee, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker,invoiceStatus);
+        super(id, job, jobseeker,invoiceStatus);
         this.adminFee = adminFee;
     }
     
@@ -41,7 +41,7 @@ public class BankPayment extends Invoice
     @Override
     public void setTotalFee()
     {
-        if (adminFee >= 1)
+        if (adminFee != 1)
         {
             super.totalFee = super.getJob().getFee() - getAdminFee();
         }
@@ -52,16 +52,14 @@ public class BankPayment extends Invoice
         }
     }
         
-    public void printData()
+    public String toString()
     {
-        System.out.println("\n==========Invoice==========\n");
-        System.out.println("ID = "+ super.getId());
-        System.out.println("\nJob = "+ super.getJob().getName());
-        System.out.println("\nDate = "+ super.getDate());
-        System.out.println("\nSeeker = "+ super.getJobseeker().getName());
-        System.out.println("\nFee = "+ super.totalFee);
-        //System.out.println("\nReferral Code = "+ bonus.getReferralCode());
-        System.out.println("\nStatus = "+ super.getInvoiceStatus());
-        System.out.println("\nPayment Type = "+ PAYMENT_TYPE);
+        return"\n====Invoice====" +
+            "\nID: " + "ID = "+ super.getId() +
+            "\nJob = "+ super.getJob().getName() +
+            "\nSeeker = "+ super.getJobseeker().getName() +
+            "\nFee = "+ super.totalFee +
+            "\nStatus = "+ super.getInvoiceStatus().toString()+
+            "\nPayment Type = "+ PAYMENT_TYPE.toString();
     }
 }
