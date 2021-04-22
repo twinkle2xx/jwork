@@ -10,13 +10,11 @@ public class JWork
 {
     public static void main (String[] args)
     {
-        Calendar cal = new GregorianCalendar(2021, 4, 8);
+        Location location1 = new Location("DKI Jakarta", "Jakarta Utara", "Jakut");
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Ailsa", "ailsasyaffa@gmail.com", "081807312314", location1));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22", 2021, 04, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22", 2021, 04, 23));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Alex", "alex.siapa@ui.ac.id", "alexsander123", 2021, 03, 6));
 
-        ArrayList<Jobseeker> arrJS = new ArrayList<Jobseeker>();
-        //arrJS.add(new EwalletPayment(12, "SE", jobseeker, invoiceStatus));
-       // arrJS.add(new BankPayment(22, "SE", jobseeker, invoiceStatus));
-        
-        arrJS.forEach((js) -> {System.out.println(js.toString());});
-    
     }
 }

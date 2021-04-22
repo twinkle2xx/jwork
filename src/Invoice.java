@@ -110,7 +110,7 @@ public abstract class Invoice
     * setter idjob dari invoice
     * @param idjob dari invoice
     */
-    public ArrayList<Job> setJobs(ArrayList<Job> jobs)
+    public void setJobs(ArrayList<Job> jobs)
     {
         this.jobs = jobs;
     }
