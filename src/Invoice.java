@@ -6,6 +6,7 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public abstract class Invoice
 {
@@ -17,27 +18,24 @@ public abstract class Invoice
     private Calendar date; //deklarasi variabel String
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
-    private Job job;
+    private ArrayList<Job> jobs;
 
     /**
      * constructor dari invoice
      * @param id dari invoice
-     * @param job dari invoice
+     * @param jobs dari invoice
      * @param date dari invoice
-     * @param totalfee dari invoice
+     * @param totalFee dari invoice
      * @param jobseeker dari invoice
-     * @param paymentType dari invoice
      * @param status dari invoice
      */
-     public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus status)
+     public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
      {
        this.id = id;
-       this.job = job;
-       //this.totalFee = totalFee;
-       //this.date = date;
+       this.jobs = jobs;
+       this.date = Calendar.getInstance();
        this.jobseeker = jobseeker;
-       //this.paymentType = paymentType;
-       this.invoiceStatus = invoiceStatus;
+       //this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -53,9 +51,9 @@ public abstract class Invoice
     * getter job invoice
     * @return job invoice
     */
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
-        return job;
+        return jobs;
     }
     
     /**
@@ -112,9 +110,9 @@ public abstract class Invoice
     * setter idjob dari invoice
     * @param idjob dari invoice
     */
-    public void setJob(Job job)
+    public ArrayList<Job> setJobs(ArrayList<Job> jobs)
     {
-        this.job = job;
+        this.jobs = jobs;
     }
     
     /**

@@ -3,6 +3,8 @@
  * @author: Ailsa Syaffa Dynia
  * @version: Modul 5 - Case Study (08/04/2021)
  */
+import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 public class EwalletPayment extends Invoice
 {
     /**
@@ -11,14 +13,14 @@ public class EwalletPayment extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
         
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
-        super(id, job, jobseeker,invoiceStatus);
+        super(id, jobs, jobseeker);
     }
 
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus)
     {
-        super(id, job, jobseeker,invoiceStatus);
+        super(id, jobs, jobseeker);
         this.bonus = bonus;
     }
     
@@ -41,40 +43,44 @@ public class EwalletPayment extends Invoice
     @Override
     public void setTotalFee()
     {
-        if (bonus != null && bonus.getActive() && (super.totalFee > bonus.getMinTotalFee()))
-        {
-            super.totalFee += bonus.getExtraFee();
-        }
-        
-        else
-        {
-            super.totalFee = super.getJob().getFee();
+        ArrayList<Job> jobs = getJobs();
+        for(Job job: jobs){
+            int fee = job.getFee();
+            if (bonus != null && (bonus.getActive() == true) && fee > bonus.getMinTotalFee()) {
+                super.totalFee = fee + bonus.getExtraFee();
+            } else {
+                super.totalFee = fee;
+            }
         }
     }
        
     public String toString()
     {
-        if (bonus != null && bonus.getActive() && super.totalFee > bonus.getMinTotalFee() && bonus.getReferralCode() != null)
-        {
-            return"\n====Invoice====" +
-            "\nID: " + "ID = "+ super.getId() +
-            "\nJob = "+ super.getJob().getName() +
-            "\nSeeker = "+ super.getJobseeker().getName() +
-            "\nFee = "+ super.totalFee +
-            "\nReferral Code = "+ bonus.getReferralCode() +
-            "\nStatus = "+ super.getInvoiceStatus().toString()+
-            "\nPayment Type = "+ PAYMENT_TYPE.toString();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+        String res = "";
+        for (Job job : getJobs()) {
+            if ((bonus != null) && (bonus.getActive() == true) && (job.getFee() > bonus.getMinTotalFee())) {
+                res.concat("\nId = " + getId() +
+                        "\nJob = " + job.getName() +
+                        "\nDate = " + date +
+                        "\nJob Seeker = " + getJobseeker().getName() +
+                        "\nReferral Code = " + bonus.getReferralCode() +
+                        "\nTotal Fee = " + getTotalFee() +
+                        "\nStatus = " + getInvoiceStatus() +
+                        "\nPayment = " + PAYMENT_TYPE);
+            }
+            else {
+                res.concat("\nId = " + getId() +
+                        "\nJob = " + job.getName() +
+                        "\nDate = " + date +
+                        "\nJob Seeker = " + getJobseeker().getName() + bonus.getReferralCode() +
+                        "\nTotal Fee = " + getTotalFee() +
+                        "\nStatus = " + getInvoiceStatus() +
+                        "\nPayment = " + PAYMENT_TYPE);
+            }
+
         }
-        
-        else
-        {
-           return"\n====Invoice====" +
-            "\nID: " + "ID = "+ super.getId() +
-            "\nJob = "+ super.getJob().getName() +
-            "\nSeeker = "+ super.getJobseeker().getName() +
-            "\nFee = "+ super.totalFee +
-            "\nStatus = "+ super.getInvoiceStatus().toString()+
-            "\nPayment Type = "+ PAYMENT_TYPE.toString(); 
-        }
+        return res;
     }
 }

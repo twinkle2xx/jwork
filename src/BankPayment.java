@@ -3,6 +3,8 @@
  * @author: Ailsa Syaffa Dynia
  * @version: Modul 5 - Case Study (08/04/2021)
  */
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 public class BankPayment extends Invoice
 {
     /**
@@ -11,14 +13,14 @@ public class BankPayment extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
         
-    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
-        super(id, job, jobseeker,invoiceStatus);
+        super(id, jobs, jobseeker);
     }
 
-    public BankPayment(int id, Job job, Jobseeker jobseeker, int adminFee, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, int adminFee)
     {
-        super(id, job, jobseeker,invoiceStatus);
+        super(id, jobs, jobseeker);
         this.adminFee = adminFee;
     }
     
@@ -41,25 +43,42 @@ public class BankPayment extends Invoice
     @Override
     public void setTotalFee()
     {
-        if (adminFee != 1)
-        {
-            super.totalFee = super.getJob().getFee() - getAdminFee();
-        }
-        
-        else
-        {
-            super.totalFee = super.getJob().getFee();
+        for(Job job : getJobs()) {
+            if(adminFee != 0) {
+                totalFee = job.getFee() - getAdminFee();
+            }
+            else {
+                totalFee = job.getFee();
+            }
         }
     }
         
     public String toString()
     {
-        return"\n====Invoice====" +
-            "\nID: " + "ID = "+ super.getId() +
-            "\nJob = "+ super.getJob().getName() +
-            "\nSeeker = "+ super.getJobseeker().getName() +
-            "\nFee = "+ super.totalFee +
-            "\nStatus = "+ super.getInvoiceStatus().toString()+
-            "\nPayment Type = "+ PAYMENT_TYPE.toString();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+        String res = "";
+        for (Job job : getJobs()) {
+            if (adminFee != 0) {
+                res.concat("\nId = " + getId() +
+                        "\nJob = " + job.getName() +
+                        "\nDate = " + date +
+                        "\nJob Seeker = " + getJobseeker().getName() +
+                        "\nAdmin Fee = " + adminFee +
+                        "\nTotal Fee = " + getTotalFee() +
+                        "\nStatus = " + getInvoiceStatus() +
+                        "\nPayment = " + PAYMENT_TYPE);
+            } else
+            {
+                res.concat("\nId = " + getId() +
+                        "\nJob = " + job.getName() +
+                        "\nDate = " + date +
+                        "\nJob Seeker = " + getJobseeker().getName() +
+                        "\nTotal Fee = " + getTotalFee() +
+                        "\nStatus = " + getInvoiceStatus() +
+                        "\nPayment = " + PAYMENT_TYPE);
+            }
+        }
+        return res;
     }
 }
