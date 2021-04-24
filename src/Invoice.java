@@ -105,11 +105,7 @@ public abstract class Invoice
     {
         this.id = id;
     }
-    
-    /**
-    * setter idjob dari invoice
-    * @param idjob dari invoice
-    */
+
     public void setJobs(ArrayList<Job> jobs)
     {
         this.jobs = jobs;
