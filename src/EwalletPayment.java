@@ -5,6 +5,7 @@
  */
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 public class EwalletPayment extends Invoice
 {
     /**
@@ -43,44 +44,34 @@ public class EwalletPayment extends Invoice
     @Override
     public void setTotalFee()
     {
-        ArrayList<Job> jobs = getJobs();
-        for(Job job: jobs){
-            int fee = job.getFee();
-            if (bonus != null && (bonus.getActive() == true) && fee > bonus.getMinTotalFee()) {
-                super.totalFee = fee + bonus.getExtraFee();
-            } else {
-                super.totalFee = fee;
-            }
+        if (bonus != null && bonus.getActive() &&
+                getTotalFee() > bonus.getMinTotalFee()) {
+            super.totalFee += bonus.getExtraFee();
         }
     }
-       
-    public String toString()
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
-        String date = dateFormat.format(getDate().getTime());
-        String res = "";
-        for (Job job : getJobs()) {
-            if ((bonus != null) && (bonus.getActive() == true) && (job.getFee() > bonus.getMinTotalFee())) {
-                res.concat("\nId = " + getId() +
-                        "\nJob = " + job.getName() +
-                        "\nDate = " + date +
-                        "\nJob Seeker = " + getJobseeker().getName() +
-                        "\nReferral Code = " + bonus.getReferralCode() +
-                        "\nTotal Fee = " + getTotalFee() +
-                        "\nStatus = " + getInvoiceStatus() +
-                        "\nPayment = " + PAYMENT_TYPE);
-            }
-            else {
-                res.concat("\nId = " + getId() +
-                        "\nJob = " + job.getName() +
-                        "\nDate = " + date +
-                        "\nJob Seeker = " + getJobseeker().getName() + bonus.getReferralCode() +
-                        "\nTotal Fee = " + getTotalFee() +
-                        "\nStatus = " + getInvoiceStatus() +
-                        "\nPayment = " + PAYMENT_TYPE);
-            }
 
+    @Override
+    public String toString() {
+        Date date = getDate().getTime();
+        String strDate = "";
+        if (date != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            strDate = dateFormat.format(date);
         }
-        return res;
+        String str = "====== Ewallet Payment ======" +
+                "\nID : " + getId() +
+                "\nJobs : " + getJobs() +
+                "\nDate : " + strDate +
+                "\nSeeker : " + getJobseeker().getName();
+
+        if (bonus.getReferralCode() != null &&
+                bonus != null && bonus.getActive() &&
+                getTotalFee() > bonus.getMinTotalFee()) {
+            str += "\nReferral Code: " + bonus.getReferralCode();
+        }
+        str += "\nFee : " + totalFee +
+                "\nStatus: " + getInvoiceStatus().toString() +
+                "\nPayment Type : " + PAYMENT_TYPE.toString();
+        return str;
     }
 }

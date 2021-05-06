@@ -23,16 +23,23 @@ public class DatabaseInvoice {
 
     public static Invoice getInvoiceById(int id)
     {
-        Invoice tempVar = null;
-        for (Invoice invoice: INVOICE_DATABASE) {
-            if (id == invoice.getId()){
-                tempVar = invoice;
-            }
-            else{
-                tempVar =  null;
+        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
+            if(INVOICE_DATABASE.get(i).getId()== id){
+                return INVOICE_DATABASE.get(i);
             }
         }
-        return tempVar;
+        return null;
+    }
+
+    public static ArrayList<Invoice> getInvoiceByJobseeker(int jobseekerId){
+        ArrayList<Invoice> temp = new ArrayList<>();
+        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
+            if(INVOICE_DATABASE.get(i).getJobseeker().getId() == jobseekerId){
+                temp.add(INVOICE_DATABASE.get(i));
+                return temp;
+            }
+        }
+        return null;
     }
 
     /**
@@ -41,9 +48,24 @@ public class DatabaseInvoice {
      */
     public static boolean addInvoice(Invoice invoice)
     {
+        for (Invoice listInvoice : INVOICE_DATABASE) {
+            if(invoice.getJobseeker().equals(listInvoice.getJobseeker()) && invoice.getInvoiceStatus() == InvoiceStatus.OnGoing) {
+                return false;
+            }
+        }
         INVOICE_DATABASE.add(invoice);
         lastId = invoice.getId();
         return true;
+    }
+
+    public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
+        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
+            if(INVOICE_DATABASE.get(i).getId() == id) {
+                INVOICE_DATABASE.get(i).setInvoiceStatus(invoiceStatus);
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -52,17 +74,13 @@ public class DatabaseInvoice {
      */
     public static boolean removeInvoice(int id)
     {
-        boolean tempBool = true;
-        for (Invoice invoice: INVOICE_DATABASE) {
-            if (id == invoice.getId()){
-                INVOICE_DATABASE.remove(id);
-                tempBool = true;
-            }
-            else{
-                tempBool = false;
+        for (int i=0; i < INVOICE_DATABASE.size(); i++) {
+            if(INVOICE_DATABASE.get(i).getId() == id) {
+                INVOICE_DATABASE.remove(i);
+                return true;
             }
         }
-        return tempBool;
+        return false;
     }
 
 }

@@ -22,47 +22,75 @@ public class DatabaseBonus
         return lastId;
     }
 
-    public static Bonus getBonusById(int id)
+    public static Bonus getBonusById(int id) throws ReferralCodeAlreadyExistsException
     {
-        Bonus tempVar = null;
-        for (Bonus bonus: BONUS_DATABASE) {
-            if (id == bonus.getId()){
-                tempVar = bonus;
-            }
-            else{
-                tempVar =  null;
+        for (int i=0; i < BONUS_DATABASE.size(); i++) {
+            if(BONUS_DATABASE.get(i).getId()== id){
+                return BONUS_DATABASE.get(i);
             }
         }
-        return tempVar;
+        throw new ReferralCodeAlreadyExistsException(id);
+    }
+
+    public static Bonus getBonusByReferralCode(String referralCode) {
+        for (int i=0; i < BONUS_DATABASE.size(); i++) {
+            if(BONUS_DATABASE.get(i).getReferralCode()== referralCode){
+                return BONUS_DATABASE.get(i);
+            }
+        }
+        return null;
     }
         
    /**
      * metode addRecruiter dari DatabaseRecruiter
      * @return false
      */
-   public static boolean addBonus(Bonus bonus)
+   public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException
    {
+       for (Bonus bonus1 : BONUS_DATABASE)
+       {
+           if (bonus1.getReferralCode() == bonus.getReferralCode())
+           {
+               throw new ReferralCodeAlreadyExistsException(bonus);
+           }
+       }
        BONUS_DATABASE.add(bonus);
        lastId = bonus.getId();
        return true;
    }
-   
+
+    public static boolean activeBonus(int id){
+        for (int i = 0; i < BONUS_DATABASE.size(); i++) {
+            if (BONUS_DATABASE.get(i).getId() == id) {
+                BONUS_DATABASE.get(i).setActive(true);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean deactivateBonus(int id){
+        for (int i = 0; i < BONUS_DATABASE.size(); i++) {
+            if (BONUS_DATABASE.get(i).getId() == id) {
+                BONUS_DATABASE.get(i).setActive(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
    /**
      * metode removeRecruiter dari DatabaseRecruiter
      * @return false
      */
-   public static boolean removeBonus(int id)
+   public static boolean removeBonus(int id) throws ReferralCodeAlreadyExistsException
    {
-       boolean tempBool = true;
-       for (Bonus bonus: BONUS_DATABASE) {
-           if (id == bonus.getId()){
-               BONUS_DATABASE.remove(id);
-               tempBool = true;
-           }
-           else{
-               tempBool = false;
+       for (int i=0; i < BONUS_DATABASE.size(); i++) {
+           if(BONUS_DATABASE.get(i).getId() == id) {
+               BONUS_DATABASE.remove(i);
+               return true;
            }
        }
-       return tempBool;
+       throw new ReferralCodeAlreadyExistsException(id);
    }
 }

@@ -22,18 +22,36 @@ public class DatabaseJob
         return lastId;
     }
 
-    public static Job getJobById(int id)
+    public static Job getJobById(int id) throws JobNotFoundException
     {
-        Job tempVar = null;
-        for (Job job: JOB_DATABASE) {
-            if (id == job.getId()){
-                tempVar = job;
-            }
-            else{
-                tempVar =  null;
+        for (int i=0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getId() == id){
+                return JOB_DATABASE.get(i);
             }
         }
-        return tempVar;
+        throw new JobNotFoundException(id);
+    }
+
+    public ArrayList<Job> getJobByRecruiter(int recruiterId){
+        ArrayList<Job> temp = new ArrayList<>();
+        for (int i=0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId){
+                temp.add(JOB_DATABASE.get(i));
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Job> getJobByCategory(JobCategory category){
+        ArrayList<Job> temp = new ArrayList<>();
+        for (int i=0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getCategory() == category){
+                temp.add(JOB_DATABASE.get(i));
+                return temp;
+            }
+        }
+        return null;
     }
 
    /**
@@ -51,28 +69,15 @@ public class DatabaseJob
      * metode Removejob dari DatabaseJob
      * @return false
      */
-   public static boolean removeJob(int id)
+   public static boolean removeJob(int id) throws JobNotFoundException
    {
-       boolean tempBool = true;
-       for (Job job: JOB_DATABASE) {
-           if (id == job.getId()){
-               JOB_DATABASE.remove(id);
-               tempBool = true;
-           }
-           else{
-               tempBool = false;
+       for (int i=0; i < JOB_DATABASE.size(); i++) {
+           if(JOB_DATABASE.get(i).getId() == id) {
+               JOB_DATABASE.remove(i);
+               return true;
            }
        }
-       return tempBool;
-   }
-    
-   /**
-     * getter job dari databasejob
-     * @return null
-     */
-   public static Job getJob()
-   {
-       return null;
+       throw new JobNotFoundException(id);
    }
 }
    

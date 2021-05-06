@@ -55,30 +55,21 @@ public class BankPayment extends Invoice
         
     public String toString()
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
-        String date = dateFormat.format(getDate().getTime());
-        String res = "";
-        for (Job job : getJobs()) {
-            if (adminFee != 0) {
-                res.concat("\nId = " + getId() +
-                        "\nJob = " + job.getName() +
-                        "\nDate = " + date +
-                        "\nJob Seeker = " + getJobseeker().getName() +
-                        "\nAdmin Fee = " + adminFee +
-                        "\nTotal Fee = " + getTotalFee() +
-                        "\nStatus = " + getInvoiceStatus() +
-                        "\nPayment = " + PAYMENT_TYPE);
-            } else
-            {
-                res.concat("\nId = " + getId() +
-                        "\nJob = " + job.getName() +
-                        "\nDate = " + date +
-                        "\nJob Seeker = " + getJobseeker().getName() +
-                        "\nTotal Fee = " + getTotalFee() +
-                        "\nStatus = " + getInvoiceStatus() +
-                        "\nPayment = " + PAYMENT_TYPE);
-            }
+        SimpleDateFormat format1 = new SimpleDateFormat("dd MMMM yyyy");
+        String date1 = format1.format(getDate().getTime());
+        String jobIn = "";
+        for(int i=0; i<getJobs().size();i++){
+            jobIn = jobIn + getJobs().get(i).getName() + " ";
         }
-        return res;
+
+        return "\n================INVOICE================\n" +
+                "ID: " + getId() +
+                "\nJob: " + jobIn +
+                "\nDate: " + date1 +
+                "\nJobseeker: " + getJobseeker().getName() +
+                "\nAdmin Fee: " + getAdminFee() +
+                "\nTotal Fee: " + totalFee +
+                "\nStatus: " + getInvoiceStatus() +
+                "\nPayment Type: " + getPaymentType();
     }
 }

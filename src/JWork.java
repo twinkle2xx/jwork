@@ -9,13 +9,11 @@ import java.util.GregorianCalendar;
 public class JWork
 {
     public static void main (String[] args) {
-        Location location1 = new Location("DKI Jakarta", "Jakarta Utara", "Jakut");
-        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Ailsa", "ailsasyaffa@gmail.com", "081807312314", location1));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22", 2021, 04, 22));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22", 2021, 04, 23));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Geraldy", "geraldy.c@ui.ac.id", "g3r4ldy", 2021, 03, 6));
+        //Location location1 = new Location("DKI Jakarta", "Jakarta Utara", "Jakut");
+        DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22"));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Geraldy", "g.c@ui.ac.id", "wow"));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Alex", "a.lex@ui.ac.id", "akuhebat"));
 
-        System.out.println("\n=====================Jobseeker Database====================\n");
-        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
-    }
+        DatabaseBonus.addBonus(new Bonus(1, "apaya", 5000, 10000, active));
+        }
 }
