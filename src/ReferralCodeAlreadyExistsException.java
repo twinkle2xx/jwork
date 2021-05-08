@@ -8,10 +8,10 @@ public class ReferralCodeAlreadyExistsException extends Exception{
     /**
      deklarasi variabel
      */
-    private int referral_error;
+    private Bonus referral_error;
 
-    public ReferralCodeAlreadyExistsException (int referral_input) {
-        super ("Bonus ID: ");
+    public ReferralCodeAlreadyExistsException (Bonus referral_input) {
+        super ("Referral Code: ");
         referral_error = referral_input;
     }
 

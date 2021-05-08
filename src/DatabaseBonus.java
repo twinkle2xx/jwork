@@ -22,14 +22,14 @@ public class DatabaseBonus
         return lastId;
     }
 
-    public static Bonus getBonusById(int id) throws ReferralCodeAlreadyExistsException
+    public static Bonus getBonusById(int id) throws BonusNotFoundException
     {
         for (int i=0; i < BONUS_DATABASE.size(); i++) {
             if(BONUS_DATABASE.get(i).getId()== id){
                 return BONUS_DATABASE.get(i);
             }
         }
-        throw new ReferralCodeAlreadyExistsException(id);
+        throw new BonusNotFoundException(id);
     }
 
     public static Bonus getBonusByReferralCode(String referralCode) {
@@ -83,7 +83,7 @@ public class DatabaseBonus
      * metode removeRecruiter dari DatabaseRecruiter
      * @return false
      */
-   public static boolean removeBonus(int id) throws ReferralCodeAlreadyExistsException
+   public static boolean removeBonus(int id) throws BonusNotFoundException
    {
        for (int i=0; i < BONUS_DATABASE.size(); i++) {
            if(BONUS_DATABASE.get(i).getId() == id) {
@@ -91,6 +91,6 @@ public class DatabaseBonus
                return true;
            }
        }
-       throw new ReferralCodeAlreadyExistsException(id);
+       throw new BonusNotFoundException(id);
    }
 }

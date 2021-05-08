@@ -21,14 +21,14 @@ public class DatabaseInvoice {
         return lastId;
     }
 
-    public static Invoice getInvoiceById(int id)
+    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException
     {
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
             if(INVOICE_DATABASE.get(i).getId()== id){
                 return INVOICE_DATABASE.get(i);
             }
         }
-        return null;
+        throw new InvoiceNotFoundException(id);
     }
 
     public static ArrayList<Invoice> getInvoiceByJobseeker(int jobseekerId){
@@ -46,11 +46,11 @@ public class DatabaseInvoice {
      * metode addInvoice dari DatabaseInvoice
      * @return false
      */
-    public static boolean addInvoice(Invoice invoice)
+    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistException;
     {
         for (Invoice listInvoice : INVOICE_DATABASE) {
             if(invoice.getJobseeker().equals(listInvoice.getJobseeker()) && invoice.getInvoiceStatus() == InvoiceStatus.OnGoing) {
-                return false;
+                throw new OngoingInvoiceAlreadyExistException(invoice);
             }
         }
         INVOICE_DATABASE.add(invoice);
@@ -72,7 +72,7 @@ public class DatabaseInvoice {
      * metode removeInvoice dari DatabaseInvoice
      * @return false
      */
-    public static boolean removeInvoice(int id)
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException;
     {
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
             if(INVOICE_DATABASE.get(i).getId() == id) {
@@ -80,7 +80,7 @@ public class DatabaseInvoice {
                 return true;
             }
         }
-        return false;
+        throw new InvoiceNotFoundException(id);
     }
 
 }

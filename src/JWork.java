@@ -9,11 +9,11 @@ import java.util.GregorianCalendar;
 public class JWork
 {
     public static void main (String[] args) {
-        //Location location1 = new Location("DKI Jakarta", "Jakarta Utara", "Jakut");
-        DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Ailsa", "ailsa.syaffa@ui.ac.id", "ilsacantik22"));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Geraldy", "g.c@ui.ac.id", "wow"));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Alex", "a.lex@ui.ac.id", "akuhebat"));
+        ArrayList<Jobseeker> list = new ArrayList<Jobseeker>();
+        list.add(new Jobseeker(1, "John", "john@ui.ac.id", "Test12345"));
+        list.add(new Jobseeker(2, "Geraldy", "geraldy@ui.ac.id", "Test12345"));
+        list.add(new Jobseeker(3, "Alan", "alan@ui.ac.id", "Test12345"));
+        list.add(new Jobseeker(4, "John", "john@ui.ac.id", "Test12345"));
 
-        DatabaseBonus.addBonus(new Bonus(1, "apaya", 5000, 10000, active));
         }
 }
