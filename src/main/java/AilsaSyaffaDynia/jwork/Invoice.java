@@ -37,7 +37,7 @@ public abstract class Invoice
        this.jobs = jobs;
        this.date = Calendar.getInstance();
        this.jobseeker = jobseeker;
-       //this.invoiceStatus = invoiceStatus;
+       this.invoiceStatus = InvoiceStatus.OnGoing;
     }
 
     /**

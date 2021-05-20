@@ -5,12 +5,13 @@
 
 package AilsaSyaffaDynia.jwork;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class DatabaseInvoice {
     /**
      * deklarasi variabel
      */
-    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
+    private static final ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
     private static int lastId = 0;
 
     public static ArrayList<Invoice> getInvoiceDatabase()
@@ -48,7 +49,7 @@ public class DatabaseInvoice {
      * metode addInvoice dari DatabaseInvoice
      * @return false
      */
-    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistException;
+    public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistException
     {
         for (Invoice listInvoice : INVOICE_DATABASE) {
             if(invoice.getJobseeker().equals(listInvoice.getJobseeker()) && invoice.getInvoiceStatus() == InvoiceStatus.OnGoing) {
@@ -74,7 +75,7 @@ public class DatabaseInvoice {
      * metode removeInvoice dari DatabaseInvoice
      * @return false
      */
-    public static boolean removeInvoice(int id) throws InvoiceNotFoundException;
+    public static boolean removeInvoice(int id) throws InvoiceNotFoundException
     {
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
             if(INVOICE_DATABASE.get(i).getId() == id) {

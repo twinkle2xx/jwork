@@ -9,7 +9,7 @@ public class OngoingInvoiceAlreadyExistException extends Exception{
     /**
      deklarasi variabel
      */
-    private Invoice invoice_error;
+    public Invoice invoice_error;
 
     public OngoingInvoiceAlreadyExistException(Invoice invoice_input){
         super("Ongoing Invoice");
@@ -18,6 +18,6 @@ public class OngoingInvoiceAlreadyExistException extends Exception{
 
     @Override
     public String getMessage(){
-        return super.getMessage() + invoice_error.getInvoiceStatus() + "already exists.";
+        return super.getMessage() + invoice_error.getId() + "already exists.";
     }
 }
