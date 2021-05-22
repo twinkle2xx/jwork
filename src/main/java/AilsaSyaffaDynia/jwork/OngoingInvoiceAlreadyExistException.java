@@ -9,7 +9,7 @@ public class OngoingInvoiceAlreadyExistException extends Exception{
     /**
      deklarasi variabel
      */
-    public Invoice invoice_error;
+    private Invoice invoice_error;
 
     public OngoingInvoiceAlreadyExistException(Invoice invoice_input){
         super("Ongoing Invoice");
