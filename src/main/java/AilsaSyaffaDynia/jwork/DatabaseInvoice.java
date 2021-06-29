@@ -39,10 +39,9 @@ public class DatabaseInvoice {
         for (int i=0; i < INVOICE_DATABASE.size(); i++) {
             if(INVOICE_DATABASE.get(i).getJobseeker().getId() == jobseekerId){
                 temp.add(INVOICE_DATABASE.get(i));
-                return temp;
             }
         }
-        return null;
+        return temp.isEmpty() ? null : temp; 
     }
 
     /**
@@ -51,8 +50,8 @@ public class DatabaseInvoice {
      */
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistException
     {
-        for (Invoice listInvoice : INVOICE_DATABASE) {
-            if(invoice.getJobseeker().equals(listInvoice.getJobseeker()) && invoice.getInvoiceStatus() == InvoiceStatus.OnGoing) {
+        for (Invoice i : INVOICE_DATABASE) {
+            if (invoice.getJobseeker().equals(i.getJobseeker()) && i.getInvoiceStatus() == InvoiceStatus.OnGoing) {
                 throw new OngoingInvoiceAlreadyExistException(invoice);
             }
         }

@@ -25,19 +25,19 @@ public class JWork {
         }
 
         try{
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, 900000, "Engineer", JobCategory.Devops, DatabaseRecruiter.getRecruiterById(2)));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, 900000, "Apakek", JobCategory.Devops, DatabaseRecruiter.getRecruiterById(2)));
         }catch(RecruiterNotFoundException e){
             System.out.println(e.getMessage());
         }
 
         try{
-            DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1,900000, "Engineer", JobCategory.UI, DatabaseRecruiter.getRecruiterById(3)));
+            DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1,900000, "Dokter", JobCategory.UI, DatabaseRecruiter.getRecruiterById(3)));
         }catch(RecruiterNotFoundException e){
             System.out.println(e.getMessage());
         }
 
             try{
-                DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, 900000, "Engineer", JobCategory.UX, DatabaseRecruiter.getRecruiterById(3)));
+                DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, 900000, "Dosen", JobCategory.UX, DatabaseRecruiter.getRecruiterById(3)));
             }catch(RecruiterNotFoundException e){
                 System.out.println(e.getMessage());
             }

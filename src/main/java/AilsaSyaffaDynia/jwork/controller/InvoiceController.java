@@ -24,7 +24,7 @@ public class InvoiceController {
         return DatabaseInvoice.getInvoiceByJobseeker(JobseekerId);
     }
 
-    @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/invoiceStatus/", method = RequestMethod.PUT)
     public Invoice changeInvoiceStatus(@RequestParam(value="id") int id,
                                        @RequestParam(value="invoiceStatus") InvoiceStatus invoiceStatus) throws InvoiceNotFoundException {
         DatabaseInvoice.changeInvoiceStatus(id, invoiceStatus);
@@ -39,8 +39,7 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
-    public Invoice addBankPayment(@RequestParam(value="name") String name,
-                                  @RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
+    public Invoice addBankPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
                                   @RequestParam(value="jobseekerId") int jobseekerId,
                                   @RequestParam(value="adminFee") int adminFee)
     {
@@ -65,8 +64,7 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
-    public Invoice addEWalletPayment(@RequestParam(value="name") String name,
-                                     @RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
+    public Invoice addEWalletPayment(@RequestParam(value="jobIdList") ArrayList<Integer> jobIdList,
                                      @RequestParam(value="jobseekerId") int jobseekerId,
                                      @RequestParam(value="referralCode") String referralCode)
     {

@@ -24,7 +24,7 @@ public class JobseekerController {
         return jobseeker;
     }
 
-    @RequestMapping(value = "/{login}", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value="email") String email,
                                     @RequestParam(value="password") String password)
     {
@@ -32,15 +32,19 @@ public class JobseekerController {
     }
 
 
-    @RequestMapping(value = "/{register}", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public Jobseeker registerJobseeker(@RequestParam(value="name") String name,
                                   @RequestParam(value="email") String email,
                                   @RequestParam(value="password") String password)
     {
         Jobseeker jobseeker = new Jobseeker(DatabaseJobseeker.getLastId()+1, name, email, password);
         try {
+            if (jobseeker.getEmail().isEmpty())
+                throw new Exception("Email regex not match!");
+            if (jobseeker.getPassword().isEmpty())
+                throw new Exception("Password regex not match!");
             DatabaseJobseeker.addJobseeker(jobseeker);
-        } catch (EmailAlreadyExistsException e) {
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }
