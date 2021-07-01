@@ -126,7 +126,10 @@ public abstract class Invoice
     {
         this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
-    
+
+    /**
+     * Set total fee
+     */
     public abstract void setTotalFee();
        
     /**

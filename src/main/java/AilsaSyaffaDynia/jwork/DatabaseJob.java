@@ -14,17 +14,29 @@ public class DatabaseJob
    private static ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
    private static int lastId = 0;
 
+    /**
+     * method ini digunakan untuk mengambil data job
+     * @return JOB_DATABASE
+     */
     public static ArrayList<Job> getJobDatabase()
     {
         return JOB_DATABASE;
     }
 
+    /**
+     * get last id
+     * @return lastId
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
-    public static Job getJobById(int id) throws JobNotFoundException
+    /**
+     * method ini digunakan untuk mengambil data job menggunakan id
+     * @param id
+     * @throws JobNotFoundException
+     */public static Job getJobById(int id) throws JobNotFoundException
     {
         for (int i=0; i < JOB_DATABASE.size(); i++) {
             if(JOB_DATABASE.get(i).getId() == id){
@@ -34,6 +46,11 @@ public class DatabaseJob
         throw new JobNotFoundException(id);
     }
 
+    /**
+     * Untuk mendapatkan job dengan menggunakan recruiter
+     * @param recruiterId
+     * @return temp
+     */
     public static ArrayList<Job> getJobByRecruiter(int recruiterId){
         ArrayList<Job> temp = new ArrayList<>();
         for (int i=0; i < JOB_DATABASE.size(); i++) {
@@ -45,6 +62,11 @@ public class DatabaseJob
         return null;
     }
 
+    /**
+     * Untuk mendapatkan job dengan menggunakan kategori
+     * @param category
+     * @return temp
+     */
     public static ArrayList<Job> getJobByCategory(JobCategory category){
         ArrayList<Job> temp = new ArrayList<>();
         for (int i=0; i < JOB_DATABASE.size(); i++) {

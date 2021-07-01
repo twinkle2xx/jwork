@@ -14,16 +14,30 @@ public class DatabaseJobseeker
     private static ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();
     private static int lastId = 0;
 
+    /**
+     * Get jobseeker database
+     * @return JOBSEEKER_DATABASE
+     */
     public static ArrayList<Jobseeker> getJobseekerDatabase()
     {
         return JOBSEEKER_DATABASE;
     }
 
+    /**
+     * Get last id
+     * @return lastId
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
+    /**
+     * Untuk mendapatkan jobseeker dengan menggunakan id
+     * @param id
+     * @return temp
+     * @throws JobSeekerNotFoundException
+     */
     public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException
     {
         for (int i=0; i < JOBSEEKER_DATABASE.size(); i++) {
@@ -65,6 +79,12 @@ public class DatabaseJobseeker
        throw new JobSeekerNotFoundException(id);
    }
 
+    /**
+     * Untuk mendaptkan parameter login dari jobseeker
+     * @param email
+     * @param password
+     * @return jobseeker
+     */
     public static Jobseeker jobseekerLogin(String email, String password)
     {
         for (int i=0; i < JOBSEEKER_DATABASE.size(); i++)

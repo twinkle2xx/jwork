@@ -122,7 +122,10 @@ public class Recruiter
     {
         this.location = location;
     }
-    
+
+    /**
+     * to String
+     */
     public String toString()
     {
         return"\n====Recruiter====" +

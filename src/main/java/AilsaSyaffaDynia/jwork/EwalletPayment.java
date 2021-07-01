@@ -15,34 +15,62 @@ public class EwalletPayment extends Invoice
     */
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
-        
+
+    /**
+     * Konstruktor dari class EwalletPayment, tanpa menggunakan bonus
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
     {
         super(id, jobs, jobseeker);
     }
 
+    /**
+     * Konstruktor dari class EwalletPayment, dengan tambahan bonus
+     * @param id
+     * @param jobs
+     * @param jobseeker
+     * @param bonus
+     */
     public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus)
     {
         super(id, jobs, jobseeker);
         this.bonus = bonus;
     }
-    
+
+    /**
+     * Untuk mendaptkan tipe pembayaran
+     * @return PAYMENT_TYPE
+     */
     @Override
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-       
+
+    /**
+     * Untuk mendapatkan bonus
+     * @return bonus
+     */
     public Bonus getBonus()
     {
         return bonus;
     }
-        
+
+    /**
+     * Set bonus
+     * @param bonus
+     */
     public void setBonus(Bonus bonus)
     {
         this.bonus = bonus;
     }
-    
+
+    /**
+     * Untuk set total fee yang ada
+     */
     @Override
     public void setTotalFee()
     {
@@ -52,6 +80,9 @@ public class EwalletPayment extends Invoice
         }
     }
 
+    /**
+     * to String
+     */
     @Override
     public String toString() {
         Date date = getDate().getTime();

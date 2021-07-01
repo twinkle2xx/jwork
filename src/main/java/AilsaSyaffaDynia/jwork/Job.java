@@ -19,10 +19,10 @@ public class Job
     /**
      * constructor dari job
      * @param id dari job
-     * @param nama dari job
-     * @param perekrut dari recruiter
+     * @param name dari job
+     * @param recruiter dari recruiter
      * @param fee dari job
-     * @param kategori dari job
+     * @param category dari job
      */
     public Job(int id, int fee, String name, JobCategory category, Recruiter recruiter)
     {
@@ -71,7 +71,7 @@ public class Job
     
     /**
     * setter rekruiter dari recruiter
-    * @param recruiter dari recruiter
+    * @return recruiter
     */
    public Recruiter getRecruiter()
     {

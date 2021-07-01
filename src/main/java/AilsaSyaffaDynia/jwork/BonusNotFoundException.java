@@ -16,6 +16,10 @@ public class BonusNotFoundException extends Exception{
         bonus_error = bonus_input;
     }
 
+    /**
+     * Get message
+     * @return error message
+     */
     @Override
     public String getMessage() {
         return super.getMessage() + bonus_error + "not found";

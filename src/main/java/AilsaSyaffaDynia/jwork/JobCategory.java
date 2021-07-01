@@ -17,12 +17,18 @@ public enum JobCategory
     DataAnalyst("Data Analyst"),;
     
     private String name;
-    
-    private JobCategory(String name)
+
+    /**
+     * Konstruktor untuk class JobCategory
+     * @param name
+     */private JobCategory(String name)
     {
         this.name = name;
     }
-    
+
+    /**
+     * To String
+     */
     public String toString()
     {
         return name;

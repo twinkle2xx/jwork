@@ -12,12 +12,19 @@ public enum InvoiceStatus
     Cancelled("Cancelled");
     
     private String name;
-    
+
+    /**
+     * Konstruktor untuk class InvoiceStatus
+     * @param name
+     */
     private InvoiceStatus(String name)
     {
         this.name = name;
     }
-    
+
+    /**
+     * To String
+     */
     public String toString()
     {
         return name;

@@ -16,7 +16,11 @@ public enum PaymentType
     {
         this.name = name;
     }
-    
+
+    /**
+     * to String
+     * @return name
+     */
     public String toString()
     {
         return name;

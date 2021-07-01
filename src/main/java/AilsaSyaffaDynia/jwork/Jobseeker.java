@@ -25,10 +25,10 @@ public class Jobseeker
     /**
      * constructor dari jobseeker
      * @param id dari jobseeker
-     * @param nama dari jobseeker
+     * @param name dari jobseeker
      * @param email dari jobseeker
      * @param password dari jobseeker
-     * @param joindate dari jobseeker
+     * @param joinDate dari jobseeker
      */
     public Jobseeker(int id, String name, String email, String password, Calendar joinDate)
     {
@@ -38,7 +38,17 @@ public class Jobseeker
         this.setPassword(password);
         this.joinDate = joinDate;
     }
-    
+
+    /**
+     * constructor dari jobseeker
+     * @param id dari jobseeker
+     * @param name dari jobseeker
+     * @param email dari jobseeker
+     * @param password dari jobseeker
+     * @param year
+     * @param month
+     * @param dayOfMonth
+     */
     public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth)
     {
         this.id = id;
@@ -47,7 +57,14 @@ public class Jobseeker
         this.setPassword(password);
         this.setJoinDate(year, month, dayOfMonth);
     }
-    
+
+    /**
+     * Konstruktor Jobseeker tanpa adanya date
+     * @param id
+     * @param name
+     * @param email
+     * @param password
+     */
     public Jobseeker(int id, String name, String email, String password)
     {
         this.id = id;
@@ -153,7 +170,7 @@ public class Jobseeker
     
     /**
     * setter tanggal masuk dari jobseeker
-    * @param joindate dari jobseeker
+    * @param joinDate dari jobseeker
     */
     public void setJoinDate(int year, int month, int dayOfMonth)
     {

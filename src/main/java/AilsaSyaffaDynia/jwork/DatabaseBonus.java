@@ -6,6 +6,7 @@
 
 package AilsaSyaffaDynia.jwork;
 import java.util.ArrayList;
+
 public class DatabaseBonus
 {
     /**
@@ -14,16 +15,30 @@ public class DatabaseBonus
     private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<Bonus>();
     private static int lastId = 0;
 
+    /**
+     * get database bonus
+     * @return BONUS_DATABASE
+     */
     public static ArrayList<Bonus> getBonusDatabase()
     {
         return BONUS_DATABASE;
     }
 
+    /**
+     * get last id
+     * @return last id
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
+    /**
+     * Untuk mendapatkan bonus dengan menggunakan id
+     * @param id
+     * @return x
+     * @throws BonusNotFoundException
+     */
     public static Bonus getBonusById(int id) throws BonusNotFoundException
     {
         for (int i=0; i < BONUS_DATABASE.size(); i++) {
@@ -34,6 +49,10 @@ public class DatabaseBonus
         throw new BonusNotFoundException(id);
     }
 
+    /**
+     * Untuk mendapatkan bonus dengan menggunakan referral code
+     * @param referralCode
+     */
     public static Bonus getBonusByReferralCode(String referralCode) {
         for (int i=0; i < BONUS_DATABASE.size(); i++) {
             if(BONUS_DATABASE.get(i).getReferralCode()== referralCode){
@@ -42,10 +61,12 @@ public class DatabaseBonus
         }
         return null;
     }
-        
-   /**
-     * metode addRecruiter dari DatabaseRecruiter
-     * @return false
+
+    /**
+     * Untuk menambahkan bonus
+     * @param bonus
+     * @return boolean
+     * @throws ReferralCodeAlreadyExistsException
      */
    public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException
    {
@@ -61,6 +82,12 @@ public class DatabaseBonus
        return true;
    }
 
+    /**
+     * Untuk remove bonus
+     * @param id
+     * @return boolean
+     * @throws BonusNotFoundException
+     */
     public static boolean activeBonus(int id){
         for (int i = 0; i < BONUS_DATABASE.size(); i++) {
             if (BONUS_DATABASE.get(i).getId() == id) {
@@ -71,6 +98,11 @@ public class DatabaseBonus
         return false;
     }
 
+    /**
+     * Untuk melakukan aktivasi terhadap bonus yang ada
+     * @param id
+     * @return boolean
+     */
     public static boolean deactivateBonus(int id){
         for (int i = 0; i < BONUS_DATABASE.size(); i++) {
             if (BONUS_DATABASE.get(i).getId() == id) {
